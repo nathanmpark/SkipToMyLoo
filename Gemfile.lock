@@ -71,6 +71,8 @@ GEM
       rack-test
       sinatra (~> 1.4.0)
       tilt (~> 1.3)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tzinfo (1.2.2)
@@ -82,16 +84,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 4.1)
-  activesupport (~> 4.1)
+  activerecord (~> 4.2.0)
+  activesupport (~> 4.2.0)
   capybara
   factory_girl
   faker
   pg
   rack-test
   rake
-  rspec
+  rspec (~> 3.0)
   shotgun
   shoulda-matchers
   sinatra
   sinatra-contrib
+  sinatra-flash
+
+BUNDLED WITH
+   1.10.6

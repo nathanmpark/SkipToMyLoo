@@ -6,6 +6,7 @@ gem 'pg'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
@@ -13,6 +14,7 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 
 gem 'shotgun'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
@@ -23,5 +25,4 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
 end
