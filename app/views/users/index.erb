@@ -8,11 +8,10 @@
 <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100% }
+  #map { position:absolute; top:0; bottom:0; width: 100%; }
 </style>
 </head>
 <body>
-
 <div id='map'>
 <script>
 // Provide your access token
@@ -21,34 +20,64 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicnNpbmNsYWlyY2hpbiIsImEiOiJjaWhmZmphbXowbHUyd
 L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
 
 
+
+// this is code to add one feature,
+// we can iterate through this for each toilet
+<% @toilets.each do |toilet| %>
+    L.mapbox.featureLayer({
+        // this feature is in the GeoJSON format: see geojson.org
+        // for the full specification
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            // coordinates here are in longitude, latitude order because
+            // x, y is the standard for GeoJSON and many formats
+            coordinates: [
+              <%=toilet.latitude%>,
+              <%=toilet.longitude%>
+            ]
+        },
+        properties: {
+            title: 'Skip To My Loo',
+            description: <%=toilet.location%>,
+            // one can customize markers by adding simplestyle properties
+            // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+            'marker-size': 'large',
+            'marker-color': '#FF8C00',
+            'marker-symbol': 'toilets'
+        }
+    }).addTo(map);
+
+<% end %>
+
 // map.on('style.load', function () {
-    // map.addSource("markers", {
-    //     "type": "geojson",
-        // "data": {
-        //     "type": "FeatureCollection",
-        //     "features": [{
-        //         "type": "Feature",
-        //         "geometry": {
-        //             "type": "Point",
-        //             "coordinates": [-77.03238901390978, 38.913188059745586]
-        //         },
-        //         // "properties": {
-        //         //     "title": "Mapbox DC",
-        //         //     "marker-symbol": "monument"
-        //         // }
-        //     }, {
-        //         "type": "Feature",
-        //         "geometry": {
-        //             "type": "Point",
-        //             "coordinates": [-122.414, 37.776]
-        //         },
-        //         "properties": {
-        //             "title": "Mapbox SF",
-        //             "marker-symbol": "harbor"
-        //         }
-        //     }]
-        // }
-    // });
+//     map.addSource("markers", {
+//         "type": "geojson",
+//         "data": {
+//             "type": "FeatureCollection",
+//             "features": [{
+//                 "type": "Feature",
+//                 "geometry": {
+//                     "type": "Point",
+//                     "coordinates": [-77.03238901390978, 38.913188059745586]
+//                 },
+//                 "properties": {
+//                     "title": "Mapbox DC",
+//                     "marker-symbol": "monument"
+//                 }
+//             }, {
+//                 "type": "Feature",
+//                 "geometry": {
+//                     "type": "Point",
+//                     "coordinates": [-122.414, 37.776]
+//                 },
+//                 "properties": {
+//                     "title": "Mapbox SF",
+//                     "marker-symbol": "harbor"
+//                 }
+//             }]
+//         }
+//     });
 
     // map.addLayer({
     //     "id": "markers",
@@ -66,6 +95,9 @@ L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
     //     }
     // });
 // });
+
+
+
 </script>
 </div>
 
