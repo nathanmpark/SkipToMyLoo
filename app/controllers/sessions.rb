@@ -1,5 +1,5 @@
 get '/' do
-  erb :'sessions/login'
+  erb :'sessions/new'
 end
 
 post '/sessions' do
@@ -31,7 +31,7 @@ get '/oauth2callback' do
   body = {
     code: params[:code],
     client_id: '540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com',
-    client_secret: 'client_secret',
+    client_secret: ENV['client_secret'],
     redirect_uri: 'http://localhost:9393/oauth2callback',
     grant_type: 'authorization_code'
   }
