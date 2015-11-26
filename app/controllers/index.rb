@@ -1,3 +1,3 @@
 get '/' do
-  erb :"users/index"
+  erb :"toilets/index"
 end
