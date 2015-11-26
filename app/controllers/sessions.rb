@@ -16,5 +16,8 @@ get '/oauth2callback' do
   }
   post_response = HTTParty.post("https://accounts.google.com/o/oauth2/token", body: body)
   p post_response
-"Hello World"
+  p "*" * 90
+  get_response =  HTTParty.get("https://www.googleapis.com/plus/v1/people/me?access_token=#{post_response["access_token"]}")
+  p get_response
+  "Hello World"
 end
