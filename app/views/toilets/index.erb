@@ -11,8 +11,11 @@
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 </head>
-<body>
 
+<body>
+<!-- adding partial below -->
+<%= erb :_sidebar_partial %>
+<!-- partial above -->
 <div id='map'>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoicnNpbmNsYWlyY2hpbiIsImEiOiJjaWhmZmphbXowbHUydmJrbDVuM3Y0OGN5In0.kAW3DaOCKBO58b-VvH-8_Q';

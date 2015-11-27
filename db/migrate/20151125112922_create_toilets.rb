@@ -1,7 +1,6 @@
 class CreateToilets < ActiveRecord::Migration
   def change
     create_table :toilets do |t|
-<<<<<<< HEAD
       t.decimal :latitude, null: false
       t.decimal :longitude, null: false
       t.string :location

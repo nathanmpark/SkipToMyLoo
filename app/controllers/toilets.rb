@@ -1,9 +1,9 @@
 #show all toilets
 get '/toilets' do
   @toilets = Toilet.all
-  p "*" * 90
-  p @toilets
-  p "*" * 90
+  # p "*" * 90
+  # p @toilets
+  # p "*" * 90
   @geojson = Array.new
 
   # @toilets.each do |toilet|

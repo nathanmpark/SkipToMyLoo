@@ -14,3 +14,10 @@
 #rating {
   display: none;
 }
+
+.vertical_nav {
+    text-align: right;
+    display: block;
+    width: 60px;
+    background-color: white;
+}
