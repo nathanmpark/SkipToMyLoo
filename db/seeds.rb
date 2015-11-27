@@ -26,6 +26,6 @@ sf_toilets.each do |row|
   p Toilet.create(row.to_hash)
 end
 
-100.times do
+1000.times do
   Rating.create(stars: rand(1..5), review: Faker::Lorem.paragraph, user_id: rand(1..20), toilet_id: rand(1..68))
 end
