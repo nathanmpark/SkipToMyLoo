@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # PostgreSQL driver
 gem 'pg'
+gem 'dotenv'
 
 # Sinatra driver
 gem 'sinatra'
@@ -16,6 +17,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'faker'
 gem 'bcrypt'
+gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'
