@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   reviewListener();
   reviewSubmitListener();
+  // appendReviews();
 
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
@@ -24,8 +25,6 @@ $(document).ready(function() {
   //     }
   // });
 
-
-
 });
 
 
@@ -36,9 +35,32 @@ var reviewListener = function(){
   })
 }
 
+// append reviews
 var reviewSubmitListener = function(){
   $('#rating').on('submit', function(event){
     event.preventDefault();
+    // console.log('yeaaaaaa')
     $('#rating').toggle();
+    var formData = $('#rating').serialize
+    // console.log(formData)
+    var request = $.ajax({
+      url: "/ratings",
+      method: "POST",
+      data: formData
+    })
+    request.done(function(response){
+      console.log(response);
+      $("#review_section").append(response);
+    })
   })
 }
+
+
+// var appendReviews = function(){
+//   $('#rating').on('click', function(event){
+//     event.preventDefault();
+//   })
+
+//   console.log('yeaaaaaa')
+
+// }
