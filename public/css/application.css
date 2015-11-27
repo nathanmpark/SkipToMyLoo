@@ -16,8 +16,23 @@
 }
 
 .vertical_nav {
-    text-align: right;
+    /*text-align: right;*/
     display: block;
-    width: 60px;
+    width: 200px;
     background-color: white;
+    border: 1px solid black;
+    margin-right: 5px;
+
+}
+
+#map {
+ left:202px;
+}
+
+#toilet_divider {
+/*  border-bottom: 1px;
+  border-top: 1px;
+  border-right: 5px;*/
+
+
 }
