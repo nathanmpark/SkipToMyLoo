@@ -1,37 +1,31 @@
-
 <div class="show-toilets">
 
-<div class="toilet-header">
-<h1> <%= @toilet.location%> </h1>
+  <div class="toilet-header">
+    <h1> <%= @toilet.location%> </h1>
 
-<h3><a id="reviewButton" href="#">Rate This Toilet!</a></h3>
-<ul>
-    <li>Number of Stalls: <%=@toilet.num_stalls%></li>
-    <li>Has Hooks: <%=@toilet.has_hooks%></li>
-    <li>Has Mirrors: <%=@toilet.has_mirrors%></li>
-    <li>Has Change Tables<%=@toilet.has_change_tables%></li>
+    <h3><a id="reviewButton" href="#">Rate This Toilet!</a></h3>
 
-  </ul>
-<br>
-<h3>Reviews</h3>
-<div id='review_section'>
+    <ul>
+      <li>Number of Stalls: <%=@toilet.num_stalls%></li>
+      <li>Has Hooks: <%=@toilet.has_hooks%></li>
+      <li>Has Mirrors: <%=@toilet.has_mirrors%></li>
+      <li>Has Change Tables<%=@toilet.has_change_tables%></li>
+    </ul>
 
-</div>
+    <%= erb :_votingPartial, locals: {toilet: @toilet} %>
 
-<%= erb :_votingPartial, locals: {toilet: @toilet} %>
-
-<hr>
-
-<h3>
-  <h3> Reviews</h3>
-  <ul>
-  <%@toilet.ratings.each do |rating| %>
-    <li><%=rating.stars%> Stars</li>
-    <p>"<%=rating.review%>"</p>
     <hr>
-  <%end%>
-  </ul>
-</h3>
 
-</div>
+    <h3> Reviews</h3>
+    <div id="reviewsList">
+      <ul>
+      <%@toilet.ratings.reverse.each do |rating| %>
+        <li><%=rating.stars%> Stars</li>
+        <p>"<%=rating.review%>"</p>
+        <hr>
+      <%end%>
+      </ul>
+    </div>
+
+  </div>
 </div>

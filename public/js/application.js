@@ -41,16 +41,19 @@ var reviewSubmitListener = function(){
   $('#rating').on('submit', function(event){
     event.preventDefault();
     $('#rating').toggle();
-    var formData = $('#rating').serialize
-    // console.log(formData)
+    $('#form').toggle();
+
+    // debugger
+    var formData = $('#rating').serialize();
     var request = $.ajax({
       url: "/ratings",
       method: "POST",
-      data: formData
+      data: formData,
+      dataType: "html"
     })
     request.done(function(response){
       console.log(response);
-      $("#review_section").append(response);
+      $("#reviewsList").prepend(response);
     })
   })
 }
