@@ -1,0 +1,13 @@
+.front-page-title {
+  color:black;
+  font-size: 50px;
+  padding: 100px;
+}
+
+.front-page {
+   background: url("http://i.huffpost.com/gen/3001890/images/o-BATHROOM-SIGN-facebook.jpg");
+   background-size:cover;
+   width:100%;
+   height: 800px;
+   background-repeat: no-repeat;
+}

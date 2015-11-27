@@ -1,5 +1,14 @@
-<a href="/sessions/new">log in!</a>
-<a href="/users/new">sign up!</a>
+<div class="front-page">
+
+<section class="front-page-title">
+
+<h1>Skip to My Loo</h1>
+<h3>Motto goes here</h3>
+
+<form action="/toilets" method="post">
+  <input type="submit" value="Show Map">
+</form>
+
 
 <%= flash[:errors] %>
 <% if current_user %>
@@ -7,4 +16,17 @@
     <input type= "hidden" name="_method" value="delete">
     <input type="submit" value="log out">
   </form>
+<% else %>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Log In">
+  </form>
 <% end %>
+
+<form action="/users/new" method="get">
+  <input type="submit" value="Sign up">
+</form>
+
+</section>
+
+</div>
+
