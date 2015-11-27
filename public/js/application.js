@@ -33,12 +33,13 @@ var reviewListener = function(){
   $('#reviewButton').on('click', function(event){
     event.preventDefault();
     $('#rating').toggle();
+    $('#form').toggle();
   })
 }
 
 var reviewSubmitListener = function(){
   $('#rating').on('submit', function(event){
-    event.preventDefault();
+    // event.preventDefault();
     $('#rating').toggle();
   })
 }
