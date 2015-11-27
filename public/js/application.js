@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+  reviewListener();
+  reviewSubmitListener();
+
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
   // when we try to bind to them
@@ -21,4 +25,20 @@ $(document).ready(function() {
   // });
 
 
+
 });
+
+
+var reviewListener = function(){
+  $('#reviewButton').on('click', function(event){
+    event.preventDefault();
+    $('#rating').toggle();
+  })
+}
+
+var reviewSubmitListener = function(){
+  $('#rating').on('submit', function(event){
+    event.preventDefault();
+    $('#rating').toggle();
+  })
+}
