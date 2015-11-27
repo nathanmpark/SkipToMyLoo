@@ -21,6 +21,7 @@ end
 ####### Just for testing ######
 get '/session' do
   session.inspect
+  erb :'sessions/video'
 end
 
 get '/google' do
@@ -28,7 +29,6 @@ get '/google' do
 end
 
 get '/oauth2callback' do
-    p ENV['CLIENT_SECRET']
   body = {
     code: params[:code],
     client_id: '540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com',
@@ -36,10 +36,14 @@ get '/oauth2callback' do
     redirect_uri: 'http://localhost:9393/oauth2callback',
     grant_type: 'authorization_code'
   }
-  p body
   post_response = HTTParty.post("https://accounts.google.com/o/oauth2/token", body: body)
-  p post_response
+  # p post_response
   get_response =  HTTParty.get("https://www.googleapis.com/plus/v1/people/me?access_token=#{post_response['access_token']}")
   p get_response
-  "Hello World"
+
+  p "THIS IS THE EMAIL"
+  p get_response["emails"][0]["value"]
+
+  p "THIS IS THE DISPLAY NAME"
+  p get_response["displayName"]
 end
