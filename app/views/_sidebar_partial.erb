@@ -2,13 +2,15 @@
 <nav class="vertical_nav">
 <h3>Restrooms</h3>
 <% @toilets.each do |toilet| %>
+<% if toilet.ratings %>
 <ul class="location_divider" id="toilet_divider">
   <li> Toilet #: <%=toilet.id%> </li>
   <li>Location: <a href="/toilets/<%=toilet.id%>"><%=toilet.location%></a></li>
-  <li>Average Rating: <%= toilet.ratings.average('stars').round(1) %></li>
+  <li>Average Rating: <%= toilet.ratings.average('stars').round(1).to_f %></li>
   <li>Changing Table: <%=toilet.has_change_tables%></li>
   <hr>
 </ul>
+<% end %>
   <%end%>
 </nav>
 </div>
