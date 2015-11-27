@@ -11,11 +11,14 @@
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 </head>
-<body>
 
+<body>
+<!-- adding partial below -->
+<%= erb :_sidebar_partial %>
+<!-- partial above -->
 <div id='map'>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoicnNpbmNsYWlyY2hpbiIsImEiOiJjaWhmZmphbXowbHUydmJrbDVuM3Y0OGN5In0.kAW3DaOCKBO58b-VvH-8_Q';
+L.mapbox.accessToken = 'pk.eyJ1IjoianVwaXRlcmxpa2V0aGVwbGFuZXQiLCJhIjoiY2loZmkxY2J4MGx2eHR0bHp1Z3B5aTJ5eSJ9.LmbSLUZbDrRG1zY09WeWFg';
 
 
 var geojson = {
@@ -25,7 +28,7 @@ var geojson = {
        coordinates: [38, -122]
        },
        properties: {
-         name: ,
+         // name: ,
          'marker-color': "#00607d",
          'marker-symbol': 'toilets',
          'marker-size': 'large'
