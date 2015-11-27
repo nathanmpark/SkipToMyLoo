@@ -1,7 +1,27 @@
 #show all toilets
 get '/toilets' do
   @toilets = Toilet.all
-  erb :"/toilets/index"
+  p "*" * 90
+  p @toilets
+  p "*" * 90
+  @geojson = Array.new
+
+  # @toilets.each do |toilet|
+  #   @geojson << {
+  #     type: 'Feature',
+  #     geometry: {
+  #       type: 'Point',
+  #       coordinates: [toilet.latitude, toilet.longitude]
+  #       },
+  #       properties: {
+  #         name: toilet.location,
+  #         'marker-color': '#00607d',
+  #         'marker-symbol': 'toilets',
+  #         'marker-size': 'large'
+  #       }
+  #   }
+  # end
+  erb :"toilets/index"
 end
 
 #new toilet form
