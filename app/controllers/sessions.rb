@@ -1,6 +1,4 @@
-get '/' do
-  erb :'sessions/new'
-end
+enable :sessions
 
 post '/sessions' do
   @user = User.find_by_email(params[:email])
@@ -21,29 +19,33 @@ end
 ####### Just for testing ######
 get '/session' do
   session.inspect
-  erb :'sessions/video'
 end
 
-get '/google' do
-  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=http://localhost:9393/oauth2callback&response_type=code&client_id=540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com'
+get '/sessions/new' do
+  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=http://localhost:9393/sessions&response_type=code&client_id=540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com'
 end
 
-get '/oauth2callback' do
+get '/sessions' do
   body = {
     code: params[:code],
     client_id: '540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com',
     client_secret: ENV['CLIENT_SECRET'],
-    redirect_uri: 'http://localhost:9393/oauth2callback',
+    redirect_uri: 'http://localhost:9393/sessions',
     grant_type: 'authorization_code'
   }
   post_response = HTTParty.post("https://accounts.google.com/o/oauth2/token", body: body)
-  # p post_response
   get_response =  HTTParty.get("https://www.googleapis.com/plus/v1/people/me?access_token=#{post_response['access_token']}")
-  p get_response
 
-  p "THIS IS THE EMAIL"
-  p get_response["emails"][0]["value"]
+  email = get_response["emails"][0]["value"]
+  name = get_response["displayName"]
 
-  p "THIS IS THE DISPLAY NAME"
-  p get_response["displayName"]
+  @user = User.find_by_email(email)
+
+  if @user
+    session[:id] = @user.id
+    redirect '/'
+  else
+    flash[:errors] = "Login failed! Please try again"
+    redirect '/'
+  end
 end
