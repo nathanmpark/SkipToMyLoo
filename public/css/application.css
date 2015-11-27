@@ -1,0 +1,47 @@
+.front-page-title {
+  color:black;
+  font-size: 50px;
+  padding: 100px;
+}
+
+.front-page {
+   background: url("http://i.huffpost.com/gen/3001890/images/o-BATHROOM-SIGN-facebook.jpg");
+   background-size:cover;
+   width:100%;
+   height: 800px;
+   background-repeat: no-repeat;
+}
+#rating {
+  display: none;
+}
+
+<<<<<<< HEAD
+.vertical_nav {
+    /*text-align: right;*/
+    display: block;
+    width: 200px;
+    background-color: white;
+    border: 1px solid black;
+    margin-right: 5px;
+
+}
+
+#map {
+ left:202px;
+}
+
+#toilet_divider {
+/*  border-bottom: 1px;
+  border-top: 1px;
+  border-right: 5px;*/
+}
+
+.btn {
+  background-color: #1E90FF;
+  border: #1E90FF;
+  color:white ;
+  border-radius: 25px;
+  padding:10px;
+  margin:5px;
+  font-size: 40px;
+}

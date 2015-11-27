@@ -11,14 +11,33 @@
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 </head>
-<body>
 
 <div id='map'></div>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoicnNpbmNsYWlyY2hpbiIsImEiOiJjaWhmZmphbXowbHUydmJrbDVuM3Y0OGN5In0.kAW3DaOCKBO58b-VvH-8_Q';
+L.mapbox.accessToken = ENV['accessToken'];
 var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
 
+<body>
+<%= erb :_sidebar_partial %>
 
+<div id='map'>
+<script>
+L.mapbox.accessToken = ENV['accessToken'];
+
+
+var geojson = {
+     type: 'Feature',
+     geometry: {
+       type: 'Point',
+       coordinates: [38, -122]
+       },
+       properties: {
+         // name: ,
+         'marker-color': "#00607d",
+         'marker-symbol': 'toilets',
+         'marker-size': 'large'
+       }
+   }
 
 map.on('style.load', function () {
     map.addSource("markers", {

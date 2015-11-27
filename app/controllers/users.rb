@@ -1,6 +1,9 @@
 enable :sessions
 
+#display a list of all users
 get '/users' do
+  erb :"/users/index"
+
   body = {
     code: params[:code],
     client_id: '540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com',
@@ -24,30 +27,35 @@ get '/users' do
   end
 end
 
-post '/users' do
-
-end
-
+#return an erb with form for creating a new photo
 get '/users/new' do
+
   redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=http://localhost:9393/users&response_type=code&client_id=540766119586-iojakvterd170kjithnlgr05o9mnlvuc.apps.googleusercontent.com'
+
 end
 
+#create a new user
+post '/users' do
+end
+
+#display a specific user
 get '/users/:id' do
-
 end
 
+#edit form for updating user account information
 get '/users/:id/edit' do
-
 end
 
+#update a specific user
 put '/users/:id' do
-
 end
 
-delete '/users/:id' do
-
+#delete user account
+delete  '/users/:id' do
 end
 
-# get '/oauth2callback' do
 
-# end
+
+
+
+
