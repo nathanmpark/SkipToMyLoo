@@ -1,7 +1,13 @@
+body {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  background: url("https://i.ytimg.com/vi/rdh63ztba7o/maxresdefault.jpg")
+}
+
 .front-page-title {
   color:black;
   font-size: 50px;
   padding: 100px;
+
 }
 
 .front-page {
@@ -37,9 +43,9 @@
 }
 
 .btn {
-  background-color: #1E90FF;
-  border: #1E90FF;
-  color:white ;
+  background-color: #10476c;
+  border: #10476c;
+  color:#E9967A;
   border-radius: 25px;
   padding:10px;
   margin:5px;
@@ -53,20 +59,114 @@
 a:link {
     text-decoration: none;
     font-weight:bold;
-    color:#1E90FF;
+    color:#E9967A;
 }
 
 /* visited link */
 a:visited {
-    color: #1E90FF;
+    color: #98c2ab;
 }
 
 /* mouse over link */
 a:hover {
-    color:black;
+    color:#98c2ab;
 }
 
 /* selected link */
 a:active {
     color: black;
 }
+
+.sidebar {
+  position:absolute;
+  width:25%;
+  height:100%;
+  top:0;left:0;
+  overflow:hidden;
+  border-right:1px solid rgba(0,0,0,0.25);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  background-color: white;
+}
+.pad2 {
+  padding:20px;
+}
+.quiet {
+  color:#888;
+}
+#map {
+  position:absolute;
+  left:25%;
+  width:75%;
+  top:0;bottom:0;
+}
+.heading {
+  background:#fff;
+  border-bottom:1px solid #eee;
+  height:60px;
+  line-height:60px;
+  padding:0 10px;
+  text-align: center;
+  font-size:25px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color:#10476c;
+}
+.listing {
+  height:100%;
+  overflow:auto;
+  padding-bottom:60px;
+}
+li {
+  list-style-type:none;
+}
+
+/*.listings .item {
+  display:block;
+  border-bottom:1px solid #eee;
+  padding:10px;
+  text-decoration:none;
+}
+.listings .item:last-child { border-bottom:none; }
+.listings .item .title {
+  display:block;
+  color:#00853e;
+  font-weight:700;
+}
+.listings .item .title small { font-weight:400; }
+.listings .item.active .title,
+.listings .item .title:hover { color:#8cc63f; }
+.listings .item.active {
+  background-color:#f8f8f8;
+}*/
+
+::-webkit-scrollbar {
+  width:8px;
+  height:3px;
+  border-left:0;
+  background:rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-track {
+  background:none;
+}
+::-webkit-scrollbar-thumb {
+  background:#E9967A;
+  border-radius:0;
+}
+
+hr {
+  color: #A9A9A9;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #98c2ab ;
+    color:#000;
+}
+
+.show-toilets{
+  margin:20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid black;
+  background-color: white;
+}
+
