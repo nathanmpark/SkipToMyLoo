@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Skip To My Loo</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+<div id='map'>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicnNpbmNsYWlyY2hpbiIsImEiOiJjaWhmZmphbXowbHUydmJrbDVuM3Y0OGN5In0.kAW3DaOCKBO58b-VvH-8_Q';
+
+
+var geojson = {
+     type: 'Feature',
+     geometry: {
+       type: 'Point',
+       coordinates: [38, -122]
+       },
+       properties: {
+         name: ,
+         'marker-color': "#00607d",
+         'marker-symbol': 'toilets',
+         'marker-size': 'large'
+       }
+   }
+
+
+var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
+
+.featureLayer.setGeoJSON(geojson);
+
+// L.mapbox.featureLayer({
+//     // this feature is in the GeoJSON format: see geojson.org
+//     // for the full specification
+//     type: 'Feature',
+//     geometry: {
+//         type: 'Point',
+//         // coordinates here are in longitude, latitude order because
+//         // x, y is the standard for GeoJSON and many formats
+//         coordinates: [-77.03221142292,
+//           38.913371603574]
+//     },
+//     properties: {
+//         title: 'Peregrine Espresso',
+//         description: '1718 14th St NW, Washington, DC',
+//         // one can customize markers by adding simplestyle properties
+//         // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+//         'marker-size': 'large',
+//         'marker-color': '#BE9A6B',
+//         'marker-symbol': 'cafe'
+//     }
+// }).addTo(map);
+
+
+</script>
+</div>
+
+</body>
+</html>
