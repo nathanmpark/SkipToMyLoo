@@ -15,15 +15,15 @@
   display: none;
 }
 
-<<<<<<< HEAD
 .vertical_nav {
     /*text-align: right;*/
     display: block;
     width: 200px;
+    height: 800px;
     background-color: white;
     border: 1px solid black;
     margin-right: 5px;
-
+    overflow: scroll;
 }
 
 #map {
@@ -44,4 +44,25 @@
   padding:10px;
   margin:5px;
   font-size: 40px;
+}
+
+a:link {
+    text-decoration: none;
+    font-weight:bold;
+    color:#1E90FF;
+}
+
+/* visited link */
+a:visited {
+    color: #1E90FF;
+}
+
+/* mouse over link */
+a:hover {
+    color:black;
+}
+
+/* selected link */
+a:active {
+    color: black;
 }
