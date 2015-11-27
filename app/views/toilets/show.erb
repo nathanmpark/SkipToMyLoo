@@ -4,7 +4,6 @@
 <h3> <%= @toilet.ratings %> </h3>
 
 <a id="reviewButton" href="#">Rate This Toilet!</a>
-<%= erb :_votingPartial, locals: {toilet: @toilet} %>
 
 <hr>
 
@@ -21,4 +20,5 @@
 
 </div>
 
+<%= erb :_votingPartial, locals: {toilet: @toilet} %>
 </div>

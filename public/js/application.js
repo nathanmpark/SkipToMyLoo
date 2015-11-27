@@ -32,6 +32,7 @@ var reviewListener = function(){
   $('#reviewButton').on('click', function(event){
     event.preventDefault();
     $('#rating').toggle();
+    $('#form').toggle();
   })
 }
 
@@ -39,7 +40,6 @@ var reviewListener = function(){
 var reviewSubmitListener = function(){
   $('#rating').on('submit', function(event){
     event.preventDefault();
-    // console.log('yeaaaaaa')
     $('#rating').toggle();
     var formData = $('#rating').serialize
     // console.log(formData)

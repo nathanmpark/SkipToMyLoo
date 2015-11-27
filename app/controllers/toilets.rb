@@ -10,16 +10,16 @@ get '/toilets' do
 
 
     @geojson << {
-      type: 'Feature',
-      geometry: {
-        "type": 'Point',
-        "coordinates": [toilet.latitude, toilet.longitude]
+      "type"=> 'Feature',
+      "geometry"=> {
+        "type"=> 'Point',
+        "coordinates"=> [toilet.latitude, toilet.longitude]
         },
-        "properties": {
-          "name": toilet.location,
-          'marker-color': '#00607d',
-          'marker-symbol': 'toilets',
-          'marker-size': 'large'
+        "properties"=> {
+          "name"=> toilet.location,
+          'marker-color'=> '#00607d',
+          'marker-symbol'=> 'toilets',
+          'marker-size'=> 'large'
         }
     }
   end
