@@ -14,3 +14,16 @@
 #rating {
   display: none;
 }
+
+
+.btn {
+  background-color: #1E90FF;
+  border: #1E90FF;
+  color:white ;
+  border-radius: 25px;
+  padding:10px;
+  margin:5px;
+  font-size: 40px;
+}
+
+

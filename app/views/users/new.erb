@@ -6,7 +6,7 @@
 <h3>Motto goes here</h3>
 
 <form action="/toilets" method="post">
-  <input type="submit" value="Show Map">
+  <input class="btn" type="submit" value="Show Map">
 </form>
 
 
@@ -14,17 +14,18 @@
 <% if current_user %>
   <form action="sessions/<%= current_user.id %>" method="post">
     <input type= "hidden" name="_method" value="delete">
-    <input type="submit" value="log out">
+    <input class="btn" type="submit" value="Log Out">
   </form>
 <% else %>
   <form action="/sessions/new" method="get">
-    <input type="submit" value="Log In">
+    <input class="btn" type="submit" value="Log In">
   </form>
 <% end %>
 
 <form action="/users/new" method="get">
-  <input type="submit" value="Sign up">
+  <input class="btn" type="submit" value="Sign up w/ Google">
 </form>
+
 
 </section>
 
