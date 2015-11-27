@@ -12,6 +12,7 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
+# require 'mapbox-rails'
 
 require 'pg'
 require 'active_record'

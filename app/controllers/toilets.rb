@@ -1,26 +1,29 @@
 #show all toilets
 get '/toilets' do
   @toilets = Toilet.all
-  p "*" * 90
-  p @toilets
-  p "*" * 90
+  # p "*" * 90
+  # p @toilets
+  # p "*" * 90
   @geojson = Array.new
+  p @toilets.first.latitude
+  @toilets.each do |toilet|
 
-  # @toilets.each do |toilet|
-  #   @geojson << {
-  #     type: 'Feature',
-  #     geometry: {
-  #       type: 'Point',
-  #       coordinates: [toilet.latitude, toilet.longitude]
-  #       },
-  #       properties: {
-  #         name: toilet.location,
-  #         'marker-color': '#00607d',
-  #         'marker-symbol': 'toilets',
-  #         'marker-size': 'large'
-  #       }
-  #   }
-  # end
+
+    @geojson << {
+      type: 'Feature',
+      geometry: {
+        "type": 'Point',
+        "coordinates": [toilet.latitude, toilet.longitude]
+        },
+        "properties": {
+          "name": toilet.location,
+          'marker-color': '#00607d',
+          'marker-symbol': 'toilets',
+          'marker-size': 'large'
+        }
+    }
+  end
+  # @geojson
   erb :"toilets/index"
 end
 

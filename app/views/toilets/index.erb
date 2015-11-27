@@ -13,29 +13,70 @@
 </head>
 <body>
 
-<div id='map'>
+<div id='map'></div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoicnNpbmNsYWlyY2hpbiIsImEiOiJjaWhmZmphbXowbHUydmJrbDVuM3Y0OGN5In0.kAW3DaOCKBO58b-VvH-8_Q';
-
-
-var geojson = {
-     type: 'Feature',
-     geometry: {
-       type: 'Point',
-       coordinates: [38, -122]
-       },
-       properties: {
-         name: ,
-         'marker-color': "#00607d",
-         'marker-symbol': 'toilets',
-         'marker-size': 'large'
-       }
-   }
-
-
 var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
 
-.featureLayer.setGeoJSON(geojson);
+
+
+map.on('style.load', function () {
+    map.addSource("markers", {
+        <% @geojson.each do |geojson| %>
+        "type": "geojson",
+        "data": {
+            "type": "FeatureCollection",
+            "features": [<%= geojson %>]
+        <%end%>
+    });
+
+    map.addLayer({
+        "id": "markers",
+        "type": "symbol",
+        "source": "markers",
+        "layout": {
+            "icon-image": "{marker-symbol}-15",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+        },
+        "paint": {
+            "text-size": 12
+        }
+    });
+});
+
+
+
+
+// console.log(<%=@geojson%>)
+// console.log(toilets)
+// <%@geojson.each do |geojson|%>
+// L.mapbox.featureLayer(
+//     <%=geojson%>
+// ,<%end%>).addTo(map);
+
+
+
+
+// var geojson = {
+//      type: 'Feature',
+//      geometry: {
+//        type: 'Point',
+//        coordinates: [38, -122]
+//        },
+//        properties: {
+//          name: ,
+//          'marker-color': "#00607d",
+//          'marker-symbol': 'toilets',
+//          'marker-size': 'large'
+//        }
+//    }
+
+
+
+// .featureLayer.setGeoJSON(geojson);
 
 // L.mapbox.featureLayer({
 //     // this feature is in the GeoJSON format: see geojson.org
@@ -61,7 +102,8 @@ var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
 
 
 </script>
-</div>
+
 
 </body>
 </html>
+
