@@ -15,6 +15,7 @@
   display: none;
 }
 
+<<<<<<< HEAD
 .vertical_nav {
     /*text-align: right;*/
     display: block;
@@ -33,6 +34,14 @@
 /*  border-bottom: 1px;
   border-top: 1px;
   border-right: 5px;*/
+}
 
-
+.btn {
+  background-color: #1E90FF;
+  border: #1E90FF;
+  color:white ;
+  border-radius: 25px;
+  padding:10px;
+  margin:5px;
+  font-size: 40px;
 }
