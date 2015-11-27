@@ -1,14 +1,19 @@
 <h3>Rate this...</h3>
-
-<form action="/reviews"  id="rating" methof="POST">
-  <select name="stars">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <input type="hidden" name="toilet" value="<%=toilet.id %>">
-  <textarea name="review" rows="4" cols="50" placeholder="Write a short description..."></textarea>
-  <input type="submit" value="Submit review">
-</form>
+<div id="form">
+  <% if current_user %>
+    <form action="/ratings"  id="rating" method="POST">
+      <select name="stars">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="hidden" name="toilet" value="<%=toilet.id %>">
+      <textarea name="review" rows="4" cols="50" placeholder="Write a short description..."></textarea>
+      <input type="submit" value="Submit review">
+    </form>
+  <% else %>
+    <h3> Please login to write a review!</h3>
+  <% end %>
+</div>

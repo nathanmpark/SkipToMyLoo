@@ -10,8 +10,8 @@ get '/toilets' do
 
 
     @geojson << {
-      "type" => 'Feature',
-      "geometry" => {
+      "type"=> 'Feature',
+      "geometry"=> {
         "type"=> 'Point',
         "coordinates"=> [toilet.latitude, toilet.longitude]
         },
