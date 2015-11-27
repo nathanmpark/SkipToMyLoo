@@ -1,7 +1,13 @@
+body {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  background: url("https://i.ytimg.com/vi/rdh63ztba7o/maxresdefault.jpg")
+}
+
 .front-page-title {
   color:black;
   font-size: 50px;
   padding: 100px;
+
 }
 
 .front-page {
@@ -37,9 +43,9 @@
 }
 
 .btn {
-  background-color: #1E90FF;
-  border: #1E90FF;
-  color:white ;
+  background-color: #10476c;
+  border: #10476c;
+  color:#E9967A;
   border-radius: 25px;
   padding:10px;
   margin:5px;
@@ -53,17 +59,17 @@
 a:link {
     text-decoration: none;
     font-weight:bold;
-    color:#1E90FF;
+    color:#E9967A;
 }
 
 /* visited link */
 a:visited {
-    color: #1E90FF;
+    color: #98c2ab;
 }
 
 /* mouse over link */
 a:hover {
-    color:#E9967A;
+    color:#98c2ab;
 }
 
 /* selected link */
@@ -79,7 +85,7 @@ a:active {
   overflow:hidden;
   border-right:1px solid rgba(0,0,0,0.25);
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-
+  background-color: white;
 }
 .pad2 {
   padding:20px;
@@ -133,7 +139,7 @@ li {
 }*/
 
 ::-webkit-scrollbar {
-  width:6px;
+  width:8px;
   height:3px;
   border-left:0;
   background:rgba(0,0,0,0.1);
@@ -149,3 +155,18 @@ li {
 hr {
   color: #A9A9A9;
 }
+
+
+input[type="submit"]:hover {
+    background-color: #98c2ab ;
+    color:#000;
+}
+
+.show-toilets{
+  margin:20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid black;
+  background-color: white;
+}
+

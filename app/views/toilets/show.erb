@@ -1,13 +1,11 @@
+
 <div class="show-toilets">
 
-<h1> <%=@toilet.location%> </h1>
-<h3> <%= @toilet.ratings %> </h3>
+<div class="toilet-header">
+<h1> <%= @toilet.location%> </h1>
 
-<a id="reviewButton" href="#">Rate This Toilet!</a>
-
-<hr>
-
-  <ul>
+<h3><a id="reviewButton" href="#">Rate This Toilet!</a></h3>
+<ul>
     <li>Number of Stalls: <%=@toilet.num_stalls%></li>
     <li>Has Hooks: <%=@toilet.has_hooks%></li>
     <li>Has Mirrors: <%=@toilet.has_mirrors%></li>
@@ -16,4 +14,19 @@
   </ul>
 
 <%= erb :_votingPartial, locals: {toilet: @toilet} %>
+
+<hr>
+
+<h3>
+  <h3> Reviews</h3>
+  <ul>
+  <%@toilet.ratings.each do |rating| %>
+    <li><%=rating.stars%> Stars</li>
+    <p>"<%=rating.review%>"</p>
+    <hr>
+  <%end%>
+  </ul>
+</h3>
+
+</div>
 </div>
