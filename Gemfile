@@ -18,6 +18,7 @@ gem 'shotgun'
 gem 'faker'
 gem 'bcrypt'
 gem 'httparty'
+gem 'mapbox-rails', :git => "https://github.com/aai/mapbox-rails.git"
 
 group :test do
   gem 'shoulda-matchers'

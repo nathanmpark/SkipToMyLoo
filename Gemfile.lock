@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/aai/mapbox-rails.git
+  revision: faa06fee4a046ea4b3fb499422f2cef6244ca991
+  specs:
+    mapbox-rails (2.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -98,6 +104,7 @@ DEPENDENCIES
   factory_girl
   faker
   httparty
+  mapbox-rails!
   pg
   rack-test
   rake

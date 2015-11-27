@@ -12,13 +12,17 @@
 </style>
 </head>
 
+<div id='map'></div>
+<script>
+L.mapbox.accessToken = ENV['accessToken'];
+var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
+
 <body>
-<!-- adding partial below -->
 <%= erb :_sidebar_partial %>
-<!-- partial above -->
+
 <div id='map'>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoianVwaXRlcmxpa2V0aGVwbGFuZXQiLCJhIjoiY2loZmkxY2J4MGx2eHR0bHp1Z3B5aTJ5eSJ9.LmbSLUZbDrRG1zY09WeWFg';
+L.mapbox.accessToken = ENV['accessToken'];
 
 
 var geojson = {
@@ -35,10 +39,63 @@ var geojson = {
        }
    }
 
+map.on('style.load', function () {
+    map.addSource("markers", {
+        <% @geojson.each do |geojson| %>
+        "type": "geojson",
+        "data": {
+            "type": "FeatureCollection",
+            "features": [<%= geojson %>]
+        <%end%>
+    });
 
-var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
+    map.addLayer({
+        "id": "markers",
+        "type": "symbol",
+        "source": "markers",
+        "layout": {
+            "icon-image": "{marker-symbol}-15",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+        },
+        "paint": {
+            "text-size": 12
+        }
+    });
+});
 
-.featureLayer.setGeoJSON(geojson);
+
+
+
+// console.log(<%=@geojson%>)
+// console.log(toilets)
+// <%@geojson.each do |geojson|%>
+// L.mapbox.featureLayer(
+//     <%=geojson%>
+// ,<%end%>).addTo(map);
+
+
+
+
+// var geojson = {
+//      type: 'Feature',
+//      geometry: {
+//        type: 'Point',
+//        coordinates: [38, -122]
+//        },
+//        properties: {
+//          name: ,
+//          'marker-color': "#00607d",
+//          'marker-symbol': 'toilets',
+//          'marker-size': 'large'
+//        }
+//    }
+
+
+
+// .featureLayer.setGeoJSON(geojson);
 
 // L.mapbox.featureLayer({
 //     // this feature is in the GeoJSON format: see geojson.org
@@ -64,7 +121,8 @@ var map = L.mapbox.map('map', 'rsinclairchin.o8p4f1ph');
 
 
 </script>
-</div>
+
 
 </body>
 </html>
+
