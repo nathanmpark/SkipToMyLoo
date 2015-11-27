@@ -1,7 +1,5 @@
-<!-- @rating = Rating.new(stars: params[:stars], review: params[:review], user_id: current_user.id, toilet_id: params[:toilet]) -->
-<div id="review_details">
-<p> Stars: <%=rating.stars%> <p>
-<p> Review: <%=rating.review%></p>
-<!-- <p> Reviewed by: <%=current_user.name%><p> -->
-<br>
-</div>
+<ul>
+  <li><%=rating.stars%> Stars</li>
+  <p>"<%=rating.review%>"</p>
+  <hr>
+</ul>
