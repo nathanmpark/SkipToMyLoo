@@ -6,7 +6,7 @@ get '/users' do
 
   body = {
     code: params[:code],
-    client_id: '1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com',
+    client_id: '450453162682-va3n53m2ns8ouifgkap1om2jqvhdnapo.apps.googleusercontent.com',
     client_secret: ENV['CLIENT_SECRET'],
     redirect_uri: 'https://skiptomyloo.herokuapp.com/users',
     grant_type: 'authorization_code'
@@ -30,7 +30,7 @@ end
 #return an erb with form for creating a new photo
 get '/users/new' do
 
-  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=https://skiptomyloo.herokuapp.com/users&response_type=code&client_id=1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com'
+  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=https://skiptomyloo.herokuapp.com/users&response_type=code&client_id=450453162682-va3n53m2ns8ouifgkap1om2jqvhdnapo.apps.googleusercontent.com'
 
 end
 
