@@ -1,39 +1,34 @@
 <div class='sidebar'>
+  <!-- <nav class="vertical_nav"> -->
 
-<!-- <nav class="vertical_nav"> -->
+  <div class='heading'>
+    <h3 class="title"><a href="/">Home</a></h3>
+    <h5 class="title">Restrooms List</h5>
+  </div>
 
-<div class='heading'>
-<h3>Restrooms!</h3>
-</div>
+  <div id='listing' class='listing'>
+    <% @toilets.each do |toilet| %>
+      <% if toilet.ratings %>
+        <ul class="location_divider" id="toilet_divider">
+          
+          <h4>
+            <a href="/toilets/<%=toilet.id%>"><%=toilet.location%></a>
+          </h4>
 
-<div id='listing' class='listing'>
+          <li>Average Rating: <%= toilet.ratings.average('stars').round(1).to_f %></li>
+          <li>Changing Table:
+            <% if toilet.has_change_tables %>
+              Yes
+            <%else%>
+              No
+            <%end%>
+          </li>
 
-<% @toilets.each do |toilet| %>
-<% if toilet.ratings %>
+          <hr>
 
-<ul class="location_divider" id="toilet_divider">
-
-  <h4>
-    <a href="/toilets/<%=toilet.id%>"><%=toilet.location%></a>
-  </h4>
-  <li>Average Rating: <%= toilet.ratings.average('stars').round(1).to_f %></li>
-  <li>Changing Table:
-    <% if toilet.has_change_tables %>
-      Yes
-    <%else%>
-      No
+        </ul>
+      <% end %>
     <%end%>
-
-  </li>
-
-  <hr>
-</ul>
-
-<% end %>
-
-<%end%>
-
-<!-- </nav> -->
-</div>
-
+    <!-- </nav> -->
+  </div>
 </div>
