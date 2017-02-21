@@ -22,7 +22,7 @@ get '/session' do
 end
 
 get '/sessions/new' do
-  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=http://localhost:9393/sessions&response_type=code&client_id=1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com'
+  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=https://skiptomyloo.herokuapp.com/sessions&response_type=code&client_id=1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com'
 end
 
 get '/sessions' do
@@ -30,7 +30,7 @@ get '/sessions' do
     code: params[:code],
     client_id: '1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com',
     client_secret: ENV['CLIENT_SECRET'],
-    redirect_uri: 'http://localhost:9393/sessions',
+    redirect_uri: 'https://skiptomyloo.herokuapp.com/sessions',
     grant_type: 'authorization_code'
   }
   post_response = HTTParty.post("https://accounts.google.com/o/oauth2/token", body: body)

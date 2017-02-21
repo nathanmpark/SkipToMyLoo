@@ -8,7 +8,7 @@ get '/users' do
     code: params[:code],
     client_id: '1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com',
     client_secret: ENV['CLIENT_SECRET'],
-    redirect_uri: 'http://localhost:9393/users',
+    redirect_uri: 'https://skiptomyloo.herokuapp.com/users',
     grant_type: 'authorization_code'
   }
   post_response = HTTParty.post("https://accounts.google.com/o/oauth2/token", body: body)
@@ -30,7 +30,7 @@ end
 #return an erb with form for creating a new photo
 get '/users/new' do
 
-  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=http://localhost:9393/users&response_type=code&client_id=1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com'
+  redirect 'https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=%2Fprofile&redirect_uri=https://skiptomyloo.herokuapp.com/users&response_type=code&client_id=1020476674313-2hik76v7r8ue5mkkkhasth0drueq30p7.apps.googleusercontent.com'
 
 end
 
